@@ -1,8 +1,7 @@
 #
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
+# Code to recreate DON dashboard
 
-# load packages needed. If you have not installed them yet, you need to do this before running the code. 
+# load packages needed to create the dashboard. If not available, install first. 
 library(leaflet)
 library(sf)
 library(rnaturalearth)
@@ -14,15 +13,13 @@ library(ggplot2)
 library(tidyr)
 library(rsconnect)
 
-# Important: the following line of code is personalized since it connects with the ShinyApps account I used to publish the Dashboard.
-# If you want to create the dashboard yourself, you need to input your own credentials here. 
+# establish connection with Shinyapps server. Here, you would have to input your own credentials if you wanted to recreate the dashboard. 
 rsconnect::setAccountInfo(name='',
                           token='',
                           secret='')
 
-#load file with data for the dashboard
+# import data set
 load("Outbreaks2.RData")
-
 
 # Ensure the Year column is numeric
 Outbreaks2$Year <- as.numeric(as.character(Outbreaks2$Year))
